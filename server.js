@@ -8,6 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get("/", (req, res) => {
+    console.log("/GET");
     res.send(`Hi! Server is listening on port ${port}`);
 });
 app.post("/", (req, res) => {
