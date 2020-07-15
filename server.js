@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+// const port = 8000;
 const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
@@ -44,7 +45,7 @@ app.post("/auth", async function(req, res) {
                 },
                 function(error, response, body) {
                     if (error) {
-                        reject(error);
+                        resolve(error);
                     } else {
                         console.log(body);
                         resp += JSON.parse(body)["access_token"];
