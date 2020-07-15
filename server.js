@@ -44,6 +44,9 @@ app.post("/auth", async function(req, res) {
                     },
                 },
                 function(error, response, body) {
+                    console.log(error);
+                    console.log(response);
+                    console.log(body);
                     if (error) {
                         resolve(error);
                     } else {
