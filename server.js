@@ -18,7 +18,7 @@ app.post("/", (req, res) => {
 app.post("/auth", async function(req, res) {
     const code = req.query.code;
     var resp = "";
-
+    console.log("abc");
     var request = require("request");
 
     function callAPI() {
