@@ -1,14 +1,10 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require("cors");
-const { updateLocale } = require("moment");
-const { BIconDot } = require("bootstrap-vue");
 const app = express();
 const port = 8000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-// app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
     res.send(`Hi! Server is listening on port ${port}`);
