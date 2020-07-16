@@ -52,7 +52,7 @@ app.post("/auth", async function(req, res) {
                         resolve(error);
                     } else {
                         console.log(body);
-                        resp += JSON.parse(body)["access_token"];
+                        resp += body;
                         resolve(response);
                     }
                 }
