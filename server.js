@@ -1,18 +1,18 @@
 const express = require("express");
 const cors = require("cors");
+const admin = require("firebase-admin");
+const serviceAccount = require("./ServiceAccountKey.json");
 const app = express();
 // const port = 8000;
 const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
 
 app.get("/", (req, res) => {
     console.log("/GET");
     res.send(`Hi! Server is listening on port ${port}`);
-});
-app.post("/", (req, res) => {
-    res.send(`POSFNN`);
 });
 
 app.post("/auth", async function(req, res) {
@@ -63,5 +63,12 @@ app.post("/auth", async function(req, res) {
     return res.send(resp);
 });
 
+app.post("/firebaseToken", async function(req, res) {
+    const uid = req.query.id;
+
+    var token = await admin.auth().createCustomToken(uid);
+
+    return res.send(token);
+});
 // listen on the port
 app.listen(port);
