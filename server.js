@@ -9,16 +9,6 @@ const port = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Credentials", true);
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json"
-    );
-    next();
-});
 
 app.get("/", (req, res) => {
     console.log("/GET");
@@ -113,7 +103,7 @@ app.post("/profile", async function(req, res) {
             );
         });
     }
-    await callAPI(); //
+    await callAPI();
     return res.send(resp);
 });
 
