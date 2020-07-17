@@ -27,7 +27,7 @@ app.post("/auth", async function(req, res) {
                 client_id: "INC000002163230",
                 code: code,
                 redirect_uri:
-                    "https://firestore.googleapis.com/v1/projects/nusocial-7c7e8/databases/(default)/documents/users/",
+                    "https%3A//nusocial-admin.herokuapp.com/authenticate",
                 grant_type: "authorization_code",
                 resource: "sg_edu_nus_oauth",
             };
