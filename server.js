@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 app.post("/auth", async function(req, res) {
     const code = req.query.code;
     var resp = "";
-    if (code == null || code == "undefined" || code == "") {
+    if (code == null || code == "undefined" || code == "" || code == "null") {
         return res.send("Error");
     }
     console.log("abc");
