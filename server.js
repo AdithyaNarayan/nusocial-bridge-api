@@ -97,7 +97,7 @@ app.post("/profile", async function(req, res) {
                         resolve(error);
                     } else {
                         console.log(body);
-                        resp += body;
+                        resp += response;
                         resolve(response);
                     }
                 }
