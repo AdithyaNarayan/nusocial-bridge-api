@@ -27,7 +27,7 @@ app.post("/auth", async function(req, res) {
                 client_id: "INC000002163230",
                 code: code,
                 redirect_uri:
-                    "https%3A//nusocial-admin.herokuapp.com/authenticate",
+                    "https://nusocial-admin.herokuapp.com/authenticate",
                 grant_type: "authorization_code",
                 resource: "sg_edu_nus_oauth",
             };
