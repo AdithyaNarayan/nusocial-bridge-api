@@ -68,6 +68,9 @@ app.post("/auth", async function(req, res) {
 
 app.post("/firebaseToken", async function(req, res) {
     const uid = req.query.id;
+    if (uid == null || uid == "undefined" || uid == "" || uid == "null") {
+        return res.send("Error");
+    }
 
     var token = await admin.auth().createCustomToken(uid);
 
@@ -76,6 +79,15 @@ app.post("/firebaseToken", async function(req, res) {
 
 app.post("/profile", async function(req, res) {
     const token = req.query.token;
+    if (
+        token == null ||
+        token == "undefined" ||
+        token == "" ||
+        token == "null"
+    ) {
+        return res.send("Error");
+    }
+
     var resp = "";
     var request = require("request");
 
