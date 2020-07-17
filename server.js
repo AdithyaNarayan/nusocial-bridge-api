@@ -18,6 +18,9 @@ app.get("/", (req, res) => {
 app.post("/auth", async function(req, res) {
     const code = req.query.code;
     var resp = "";
+    if (code == null || code == "undefined" || code == "") {
+        return res.send("Error");
+    }
     console.log("abc");
     var request = require("request");
 
@@ -92,9 +95,6 @@ app.post("/profile", async function(req, res) {
                 function(error, response, body) {
                     console.log("Resp" + response);
                     console.log("body" + body);
-                    if (body == null || body == "") {
-                        resolve(response);
-                    }
                     if (error) {
                         resolve(error);
                     } else {
