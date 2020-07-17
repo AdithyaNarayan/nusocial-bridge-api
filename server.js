@@ -92,6 +92,9 @@ app.post("/profile", async function(req, res) {
                 function(error, response, body) {
                     console.log("Resp" + response);
                     console.log("body" + body);
+                    if (body == null || body == "") {
+                        resolve(response);
+                    }
                     if (error) {
                         resolve(error);
                     } else {
