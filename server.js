@@ -90,14 +90,13 @@ app.post("/profile", async function(req, res) {
                     },
                 },
                 function(error, response, body) {
-                    console.log(error);
-                    console.log(response);
-                    console.log(body);
+                    console.log("Resp" + response);
+                    console.log("body" + body);
                     if (error) {
                         resolve(error);
                     } else {
                         console.log(body);
-                        resp += response;
+                        resp += JSON.parse(body)["userID"];
                         resolve(response);
                     }
                 }
