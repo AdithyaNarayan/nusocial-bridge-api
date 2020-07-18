@@ -15,6 +15,11 @@ app.get("/", (req, res) => {
     res.send(`Hi! Server is listening on port ${port}`);
 });
 
+app.get("/loading", (req, res) => {
+    console.log("/GET");
+    res.send("LOADING...");
+});
+
 app.post("/auth", async function(req, res) {
     const code = req.query.code;
     var resp = "";
